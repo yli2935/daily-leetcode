@@ -39,5 +39,26 @@ namespace ContainerWithMostWater
             }
             return res;
         }
+        //Two pointers
+        private static int MaxArea(int[] height)
+        {
+            int start = 0;
+            int end = height.Length - 1;
+            int max = Math.Min(height[start], height[end])*(end-start);
+            while (start < end)
+            {
+                if (height[start] < height[end])
+                {
+                    start++;
+                }
+                else
+                {
+                    end--;
+                }
+                max= Math.Max(max, Math.Min(height[start], height[end]) * (end - start));
+
+            }
+            return max;
+        }
     }
 }
