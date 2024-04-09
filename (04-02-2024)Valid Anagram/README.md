@@ -11,7 +11,7 @@ Given two strings `s` and `t`, return `true` if `t` is an anagram of `s`, and `f
 
 ```plaintext
 Example 1:
-Input: s = "anagram", t = "nagaram"
+Input:0
 Output: true
 Explanation: "nagaram" is an anagram of "anagram".
 
