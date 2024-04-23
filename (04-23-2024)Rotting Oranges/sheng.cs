@@ -14,26 +14,21 @@ namespace RottingOranges
         {
             int minute = 0;
             Queue<((int, int), int)> rottenOranges = [];
-            bool[][] visited = new bool[grid.Length][];
+           
             int[][] directions = [[-1, 0], [1, 0], [0, -1], [0, 1]];
             int m = grid.Length;
             int n = grid[0].Length;
 
-            for (int i = 0; i < grid.Length; i++)
-            {
-                visited[i] = new bool[grid[i].Length];
-                for (int j = 0; j < grid[i].Length; j++)
-                    visited[i][j] = false;
-            }
+           
             //put current rotten oranges in the queque
             for (int i = 0; i < grid.Length; i++)
             {
                 for (int j = 0; j < grid[i].Length; j++)
                 {
-                    if (visited[i][j] == false && grid[i][j] == 2)
+                    if ( grid[i][j] == 2)
                     {
                         rottenOranges.Enqueue(((i, j), minute));
-                        visited[i][j] = true;
+                      
                     }
                 }
             }
@@ -47,11 +42,11 @@ namespace RottingOranges
                 {
                     int newX = x + direction[1];
                     int newY = y + direction[0];
-                    if (newX >= 0 && newY >= 0 && newX < n && newY < m && visited[newY][newX] == false && grid[newY][newX] == 1)
+                    if (newX >= 0 && newY >= 0 && newX < n && newY < m && grid[newY][newX] == 1)
                     {
                         grid[newY][newX] = 2;
                         rottenOranges.Enqueue(((newY, newX), temporaryMinute+1));
-                        visited[newY][newX] = true;
+                     
                         minute = temporaryMinute+1;
 
                     }
